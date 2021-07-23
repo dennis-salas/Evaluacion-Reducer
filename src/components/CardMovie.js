@@ -11,7 +11,7 @@ const CardMovie = () => {
     return (
         <Container className='mt-5'>
             <Row xs={1} className="g-4">
-                <h1>Pelicula Agregadas</h1>
+                <h1>Peliculas Agregadas</h1>
                 {
                     pelicula.map(ele => (
                         <Card className="w-25 mx-4">
