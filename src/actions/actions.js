@@ -84,7 +84,16 @@ export const adicionar = (nombrePelicula, image, sipnosis) => {
 export const listarPeliculas = () => {
     return async (dispatch) => {
         const data = await db.collection(`Peliculas`).get();
+        const pelicula = []
         console.log(data);
+
+        data.forEach(ele => {
+            pelicula.push({
+                ...ele.data()
+            })
+        })
+        console.log(pelicula)
+        dispatch(listar(pelicula))
     }
 }
 

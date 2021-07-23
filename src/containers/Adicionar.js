@@ -4,6 +4,7 @@ import { useForm } from '../hooks/useForm'
 import { useDispatch } from 'react-redux'
 import { adicionarPelicula, listarPeliculas } from '../actions/actions'
 import { useEffect } from 'react'
+import CardMovie from '../components/CardMovie'
 
 const Adicionar = () => {
 
@@ -69,6 +70,9 @@ const Adicionar = () => {
                         </div>
                     </div>
                 </Form>
+            </Container>
+            <Container>
+                <CardMovie />
             </Container>
         </div>
     )
