@@ -5,7 +5,7 @@ import { registroPersona } from '../actions/actions'
 import { useDispatch } from 'react-redux'
 
 const Register = () => {
-
+    const dispatch = useDispatch();
     const [formValues, handleInputChange, reset] = useForm({
         nombre: '',
         apellido: '',
@@ -15,19 +15,18 @@ const Register = () => {
 
     const { nombre, apellido, email, telefono } = formValues
 
-    const dispatch = useDispatch
-
     const handleRegistro = (e) => {
         e.preventDefault();
         console.log(nombre, apellido, email, telefono);
         dispatch(registroPersona(nombre, apellido, email, telefono))
+        reset();
     }
 
     return (
         <Container>
             <Container className="w-25 my-5 border border-dark p-2">
                 <Form onSubmit={handleRegistro}>
-                    <Container>
+                    <div>
                         <div>
                             <h2 className="text-center">Registro</h2>
                             <p className="text-center">Registra tus datos</p>
@@ -66,9 +65,12 @@ const Register = () => {
                                 onChange={handleInputChange}
                                 required />
                             <br />
-                            <button className="btn btn-primary">Guardar</button>
+                            <button
+                                className="btn btn-primary"
+                                type="submit"
+                            >Guardar</button>
                         </div>
-                    </Container>
+                    </div>
                 </Form>
             </Container>
         </Container>

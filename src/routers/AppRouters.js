@@ -8,6 +8,7 @@ import App from '../containers/App';
 import NavbarApp from '../components/NavbarApp';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
+import Adicionar from '../containers/Adicionar';
 
 const AppRouter = () => {
     return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
                 <Route exact path="/" component={App} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Register" component={Register} />
+                <Route exact="/Adicionar" component={Adicionar} />
             </Switch>
         </Router>
     )

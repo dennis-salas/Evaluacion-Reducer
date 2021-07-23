@@ -11,6 +11,7 @@ const NavbarApp = () => {
                     <Link className="nav-link" to="/">NavBar</Link>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
+                        <Link className="nav-link" to="/Adicionar">Adicionar Pelicula</Link>
                         <Link className="nav-link" to="/Register">
                             <Button>Registrar</Button>
                         </Link>

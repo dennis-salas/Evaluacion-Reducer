@@ -25,6 +25,23 @@ export const loginGoogle = () => {
     }
 }
 
+export const registroPersona = (nombre, apellido, email, telefono) => {
+    return async (dispatch) => {
+
+        const nuevosRegistros = {
+            nombre: nombre,
+            apellido: apellido,
+            email: email,
+            telefono: telefono
+        }
+
+        await db.collection(`Registro`).add(nuevosRegistros);
+
+        console.log(nombre, apellido, email, telefono);
+        dispatch(registro(nombre, apellido, email, telefono))
+    }
+}
+
 export const registro = (nombre, apellido, email, telefono) => {
     return {
         type: types.Registrar,
@@ -37,17 +54,31 @@ export const registro = (nombre, apellido, email, telefono) => {
     }
 }
 
-
-export const registroPersona = (nombre, apellido, email, telefono) => {
+export const adicionarPelicula = (nombrePelicula, image, sipnosis) => {
     return async (dispatch) => {
-        const nuevoUsuario = {
-            nombre: nombre,
-            apellido: apellido,
-            email: email,
-            telefono: telefono
+
+        const nuevasPeliculas = {
+            nombrePelicula: nombrePelicula,
+            image: image,
+            sipnosis: sipnosis
         }
-        await db.collection(`/Registro`).add(nuevoUsuario);
-        console.log(nombre, apellido, email, telefono);
-        dispatch(registro(nombre, apellido, email, telefono));
+
+        await db.collection(`Peliculas`).add(nuevasPeliculas);
+
+        console.log(nombrePelicula, image, sipnosis);
+        dispatch(registro(nombrePelicula, image, sipnosis))
     }
 }
+
+export const adicionar = (nombrePelicula, image, sipnosis) => {
+    return {
+        type: types.Adicionar,
+        payload: {
+            nombrePelicula,
+            image,
+            sipnosis
+        }
+    }
+}
+
+
