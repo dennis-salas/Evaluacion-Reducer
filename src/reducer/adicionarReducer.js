@@ -1,6 +1,6 @@
 import { types } from "../types/types";
 
-export const registerReducer = (state = [], action) => {
+export const adicionarReducer = (state = [], action) => {
     switch (action.type) {
         case types.Adicionar:
             return {
