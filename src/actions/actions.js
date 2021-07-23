@@ -81,4 +81,18 @@ export const adicionar = (nombrePelicula, image, sipnosis) => {
     }
 }
 
+export const listarPeliculas = () => {
+    return async (dispatch) => {
+        const data = await db.collection(`Peliculas`).get();
+        console.log(data);
+    }
+}
+
+
+export const listar = (peliculas) => {
+    return {
+        type: types.Listar,
+        payload: peliculas
+    }
+}
 

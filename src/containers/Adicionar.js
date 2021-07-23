@@ -2,11 +2,16 @@ import React from 'react'
 import { Container, Form } from 'react-bootstrap'
 import { useForm } from '../hooks/useForm'
 import { useDispatch } from 'react-redux'
-import { adicionarPelicula } from '../actions/actions'
+import { adicionarPelicula, listarPeliculas } from '../actions/actions'
+import { useEffect } from 'react'
 
 const Adicionar = () => {
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(listarPeliculas());
+    }, [])
 
     const [formValues, handleInputChange, reset] = useForm({
         nombrePelicula: '',

@@ -8,6 +8,11 @@ export const adicionarReducer = (state = [], action) => {
                 image: action.payload.image,
                 sipnosis: action.payload.sipnosis,
             }
+        case types.Listar:
+            return {
+                ...state,
+                pelicula: [...action.payload]
+            }
         default:
             return state;
     }
